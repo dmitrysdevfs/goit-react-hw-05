@@ -17,7 +17,6 @@ export const fetchTrendingMovies = async () => {
   const params = {
     language: defaultLanguage,
   };
-
   const resp = await axios.get(`${BASE_URL}trending/movie/day?`, {
     ...commonOptions,
     params,
