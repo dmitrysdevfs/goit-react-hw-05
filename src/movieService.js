@@ -11,15 +11,17 @@ const commonOptions = {
     accept: 'application/json',
     Authorization: `Bearer ${apiKey}`,
   },
+  params: {
+    language: defaultLanguage,
+  },
 };
 
 export const fetchTrendingMovies = async () => {
-  const params = {
-    language: defaultLanguage,
-  };
-  const resp = await axios.get(`${BASE_URL}trending/movie/day?`, {
-    ...commonOptions,
-    params,
-  });
+  const resp = await axios.get(`${BASE_URL}trending/movie/day?`, commonOptions);
   return resp.data.results;
+};
+
+export const fetchMovieById = async movieId => {
+  const resp = await axios.get(`${BASE_URL}movie/${movieId}?`, commonOptions);
+  return resp.data;
 };

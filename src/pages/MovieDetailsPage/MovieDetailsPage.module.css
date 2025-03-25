@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 800px;
+  /* margin: 20px auto; */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.moviePoster {
+  width: 360px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movieInfo {
+  flex: 1;
+}
+
+.movieInfo h2 {
+  line-height: 1.2;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.movieInfo p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.movieInfo strong {
+  color: #007bff;
+}
+
+.movieInfo h3,
+.movieInfo h4 {
+  margin-top: 20px;
+  font-weight: 500;
+  color: #444;
+}
