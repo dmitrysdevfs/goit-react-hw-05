@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { fetchTrendingMovies } from '../../movieService';
 import MovieList from '../../components/MovieList/MovieList';
 import css from './HomePage.module.css';
+import Loader from '../../components/Loader';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -28,8 +30,8 @@ export default function HomePage() {
   return (
     <>
       <h1 className={css.title}>Trending today</h1>
-      {loading && <b>Loadin movies...</b>}
-      {error && <b>Whoops there was an error, plz reload the page...</b>}
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
       {movies.length > 0 && <MovieList movies={movies} />}
     </>
   );

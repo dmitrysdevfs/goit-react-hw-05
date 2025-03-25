@@ -2,17 +2,27 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { fetchMovieById } from '../../movieService';
 import css from './MovieDetailsPage.module.css';
+import Loader from '../../components/Loader';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function getMovie() {
       try {
+        setLoading(true);
+        setError(false);
         const data = await fetchMovieById(movieId);
         setMovie(data);
-      } catch (error) {}
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     }
 
     getMovie();
@@ -20,6 +30,8 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
       {movie && (
         <div className={css.container}>
           <img
