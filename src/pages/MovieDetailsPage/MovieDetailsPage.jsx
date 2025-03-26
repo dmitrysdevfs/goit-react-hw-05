@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router';
 import clsx from 'clsx';
 import { fetchMovieById } from '../../movieService';
@@ -92,7 +92,9 @@ export default function MovieDetailsPage() {
               </div>
             </div>
           </div>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </>
