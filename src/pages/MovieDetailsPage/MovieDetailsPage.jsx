@@ -5,6 +5,7 @@ import { fetchMovieById } from '../../movieService';
 import css from './MovieDetailsPage.module.css';
 import Loader from '../../components/Loader';
 import ErrorMessage from '../../components/ErrorMessage';
+import defaultPoster from '../../assets/image.jpg';
 
 const getLinkStyles = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -42,7 +43,11 @@ export default function MovieDetailsPage() {
           <div className={css.wrapper}>
             <img
               className={css.moviePoster}
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : defaultPoster
+              }
               alt={movie.title || 'Movie Poster'}
             />
             <div className={css.movieInfo}>

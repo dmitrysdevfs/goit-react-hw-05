@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.input {
+  width: 100%;
+  min-width: auto;
+  padding: 10px 10px 10px 45px;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.hiddenButton {
+  display: none;
+}

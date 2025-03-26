@@ -33,21 +33,26 @@ export default function MovieCast() {
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <ul className={css.list}>
-        {cast.length > 0 &&
-          cast
-            .filter(
-              item =>
-                item.known_for_department === 'Acting' && item.profile_path
-            )
-            .map(item => (
-              <li key={item.id} className={css.item}>
-                <h2 className={css.name}>{item.name}</h2>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
-                  alt={item.name}
-                />
-              </li>
-            ))}
+        {!loading && cast.length > 0
+          ? cast
+              .filter(
+                item =>
+                  item.known_for_department === 'Acting' && item.profile_path
+              )
+              .map(item => (
+                <li key={item.id} className={css.item}>
+                  <h2 className={css.name}>{item.name}</h2>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
+                    alt={item.name}
+                  />
+                </li>
+              ))
+          : !loading && (
+              <p>
+                We don&apos;t have any information about cast for this movie.
+              </p>
+            )}
       </ul>
     </div>
   );

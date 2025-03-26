@@ -33,20 +33,21 @@ export default function MovieReviews() {
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <ul className={css.list}>
-        {reviews.length > 0 &&
-          reviews.map(review => (
-            <li key={review.id} className={css.item}>
-              <h2 className={css.author}>{review.author}</h2>
-              <p
-                className={css.content}
-                dangerouslySetInnerHTML={{ __html: review.content }}
-              />
-              <p>
-                <strong>Updated on:</strong>{' '}
-                {new Date(review.updated_at).toLocaleDateString()}
-              </p>
-            </li>
-          ))}
+        {!loading && reviews.length > 0
+          ? reviews.map(review => (
+              <li key={review.id} className={css.item}>
+                <h2 className={css.author}>{review.author}</h2>
+                <p
+                  className={css.content}
+                  dangerouslySetInnerHTML={{ __html: review.content }}
+                />
+                <p>
+                  <strong>Updated on:</strong>{' '}
+                  {new Date(review.updated_at).toLocaleDateString()}
+                </p>
+              </li>
+            ))
+          : !loading && <p>We don&apos;t have any reviews for this movie.</p>}
       </ul>
     </div>
   );

@@ -17,6 +17,7 @@
 .moviePoster {
   width: 360px;
   height: auto;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -24,8 +25,8 @@
 .movieInfo {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  position: relative;
+  height: auto;
+  justify-content: space-between;
 }
 
 .movieMainInfo {
@@ -57,9 +58,10 @@
 }
 
 .movieAddInfo {
-  position: absolute;
-  top: 490px;
-
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  align-items: flex-end;
 }
 
 .addInfoList {

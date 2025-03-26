@@ -41,3 +41,11 @@ export const fetchMovieReviews = async movieId => {
   );
   return resp.data.results;
 };
+
+export const fetchMovieByQuery = async query => {
+  const resp = await axios.get(
+    `${BASE_URL}search/movie?query=${query}`,
+    commonOptions
+  );
+  return resp.data.results;
+};
