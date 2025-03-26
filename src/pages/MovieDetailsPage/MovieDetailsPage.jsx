@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router';
 import clsx from 'clsx';
 import { fetchMovieById } from '../../movieService';
 import css from './MovieDetailsPage.module.css';
@@ -16,6 +16,9 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const location = useLocation();
+  const backLinkRef = useRef(location.state);
 
   useEffect(() => {
     async function getMovie() {
@@ -36,6 +39,9 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      <Link to={backLinkRef.current} className={css.backLink}>
+        Go back
+      </Link>
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {movie && (
