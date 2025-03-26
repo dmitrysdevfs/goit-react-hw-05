@@ -1,9 +1,13 @@
 .container {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wrapper {
+  display: flex;
   gap: 24px;
   max-width: 800px;
-  /* margin: 20px auto; */
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -18,28 +22,72 @@
 }
 
 .movieInfo {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
 }
 
-.movieInfo h2 {
+.movieMainInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieMainInfo h2 {
   line-height: 1.2;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.movieInfo p {
+.movieMainInfo p {
   font-size: 16px;
   color: #555;
   margin-bottom: 10px;
 }
 
-.movieInfo strong {
-  color: #007bff;
+.movieMainInfo strong {
+  color: #777;
 }
 
-.movieInfo h3,
-.movieInfo h4 {
-  margin-top: 20px;
+.movieMainInfo h3,
+.movieMainInfo h4 {
+  margin-top: 10px;
   font-weight: 500;
   color: #444;
 }
+
+.movieAddInfo {
+  position: absolute;
+  top: 490px;
+
+}
+
+.addInfoList {
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  color: #333;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out
+}
+
+.link:hover {
+  font-size: 700;
+  color: #007bff;
+}
+
+.active {
+  color: #007bff;
+  font-weight: 600;
+  border-bottom: 2px solid #007bff;
+}
+
+/* .additionalInfo {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
