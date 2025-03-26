@@ -33,3 +33,11 @@ export const fetchMovieCast = async movieId => {
   );
   return resp.data.cast;
 };
+
+export const fetchMovieReviews = async movieId => {
+  const resp = await axios.get(
+    `${BASE_URL}movie/${movieId}/reviews?`,
+    commonOptions
+  );
+  return resp.data.results;
+};
